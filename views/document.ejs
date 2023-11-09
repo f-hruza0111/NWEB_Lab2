@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokument</title>
+    <%- include('./partials/bootstrap') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <h1>Kontrola pristupa je <%=access%>!</h1>
+    <h2>Ovaj dokument namijenjen je <%=owner.name%> s ID-om <%=owner.id%> i mentorima/administratorima</h2>
+    <h2>Zdravo <%=user.role%> <%=user.name%>!</h2>
+    <br></br>
+    <h3>Naslov: <%=document.name%></h3>
+    <p>Sadržaj: <%=document.content%></p>
+   
+</body>
+</html>

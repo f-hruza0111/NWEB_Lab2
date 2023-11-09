@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumenti studenta</title>
+    <%- include('./partials/bootstrap') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <h1>Kontrola pristupa je <%=access%>!</h1>
+    <h2>Ova stranica namijenjena je studentu <%=student.name%> s ID-om <%=student.id%> i mentorima/administratorima</h2>
+    <h2>Zdravo <%=user.role%> <%=user.name%>! Ovdje je lista dokumenata kojima možete pristupiti:</h2>
+    
+    <div class="list-group">
+
+       <% for (const document of documents) { %>
+            <a href = "/BAC/documents/<%=document.id%>" class="list-group-item list-group-item-action active">
+            <%=document.name%>
+            </a>
+        <% } %>
+    </div>
+   
+   
+</body>
+</html>

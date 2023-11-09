@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XSS</title>
+    <%- include('./partials/bootstrap') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <h1>XSS</h2>
+    <span>Unutar forme se može upisati poruka koja će biti vidljiva na stranici. XSS ranjivost se moze uključiti pritiskom na checkbox 
+        i isprobati upisivanjem teksta <span style="background-color: yellow;">&lt;script&gt; alert('XSS Test') &lt;/script&gt;</span>
+         ili <span style="background-color: yellow;">&lt;script&gt; alert(document.cookie) &lt;/script&gt;</span> 
+    </span>
+    <form method="post" id="form">
+
+        <div class="form-group">
+            <label for="comment">Poruka</label>
+            <input type="text" name="comment" class="form-control">        
+        </div>
+        
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="xss" <%=checked%> id="xss">
+            <label class="form-check-label" for="xss">
+              Omogući XSS ranjivost
+            </label>
+        </div>
+
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <h4>Poruka</h4>
+    <span><!--Ukljucen xss:--> <%-message%></span>
+
+    <% //if(checked) { %>
+    <%// } else { %>
+        <!-- <span>Iskljucen xss: <%=//message%></span> -->
+        
+    <% //} %>    
+   
+</body>
+</html>

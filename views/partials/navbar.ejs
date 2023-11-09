@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Izbornik ranjivosti</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="/XSS">XSS ranjivost</a>
+        </li> 
+
+        <li class="nav-item">
+            <a class="nav-link" href="/BAC">Bad Access Control ranjivost</a>
+        </li> 
+        <% if(BAC && isAuthenticated) { %>
+            <li class="nav-item">
+                <a class="nav-link" href="/BAC/logout">Log out</a>
+            </li> 
+        <% } %>
+      </ul>
+    </div>
+</nav>

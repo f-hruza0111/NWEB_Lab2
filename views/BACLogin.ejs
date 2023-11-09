@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bad Access Control</title>
+    <%- include('./partials/bootstrap') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+
+    <p >
+        Ovaj dio stranice omogućava isprobavanje <span style="background-color: yellow;">loše kontrole pristupa</span> . Postoje 4 korisnika, 3 studenta i jedan mentor. 
+        Mentor je efektivno administrator i može vidjeti sve profile studenata i pristupati svim dokumentima. 
+        Studenti smiju pristupiti samo vlastitom profilu i dokumentima koji se tiču njih i prikazani su na stranici.
+        Označavanjem kućice pri prijavi korisnika, omogućuje se ranjivost. Inače se odvija stroga kontrola pristupa.
+        Vjerodajnice za studenta su <span style="background-color: yellow;">korisničko ime: student1 i lozinka: password</span>.
+        Vjerodajnice za mentora su <span style="background-color: yellow;">korisničko ime: mentor i lozinka: password</span>.
+        Kako bi se isprobala ranjivost, u polju za unos URL-a treba promjeniti dijelove URL-a kako bi se isprobao pristup.
+        Stranica za mentore mapirana je na <span style="background-color: yellow;">/BAC/mentor</span>
+        Stranica za studenta mapirana je na <span style="background-color: yellow;">/BAC/student/id</span> gdje je id broj između 1 i 3.
+        Stranica za dokumente mapirana je na <span style="background-color: yellow;">/BAC/document/id</span> gdje je id broj između 1 i 4.
+
+    </p>
+
+
+    <form class="col-lg-6 offset-lg-3 " method="post" id="form">
+
+        <div class="form-group">
+            <label for="username">Korisničko ime</label>
+            <input type="text" name="username" class="form-control">        
+        </div>
+        
+        <div class="form-group">
+            <label for="password">
+                Lozinka
+              </label>
+            <input class="form-control" type="password" name="password">
+        </div>
+
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="bac" <%=checked%> id="bac">
+            <label class="form-check-label" for="bac">
+              Omogući Bad Access Control ranjivost
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    
+   
+</body>
+</html>

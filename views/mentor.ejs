@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor</title>
+    <%- include('./partials/bootstrap') %>
+</head>
+<body>
+    <%- include('./partials/navbar') %>
+    <h1>Kontrola pristupa je <%=access%>!</h1>
+    <h2>Ova stranica namijenjena je samo mentorima</h2>
+    <h2>Zdravo <%=user.role%> <%=user.name%>! Ovdje se nalazi lista dokumenata i profila studenata kojima možete pristupiti:</h2>
+    
+    <h4>Dokumenti:</h4>
+    <div class="list-group">
+    
+       <% for (const document of documents) { %>
+            
+            <a href = "/BAC/documents/<%=document.id%>" class="list-group-item list-group-item-action active">
+            <%=document.name%>
+            </a>
+        <% } %>
+    </div>
+
+    <h4>Studenti:</h4>
+    <div class="list-group">
+        <% for (const student of students) { %>
+             <a href = "/BAC/student/<%=student.id%>" class="list-group-item list-group-item-action active">
+             <%=student.name%>
+             </a>
+         <% } %>
+     </div>
+   
+   
+</body>
+</html>

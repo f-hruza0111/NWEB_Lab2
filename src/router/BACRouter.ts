@@ -58,7 +58,7 @@ BACRouter.get('/student/:id', authenticate, authorizeStudentWithID, (req, res) =
     var access = "omogućena"
     if(req.session['checked'] != undefined){access = "onemogućena"}
         
-    if(student != undefined && student.role == "student"){
+    if(student != undefined && student.role == 'student'){
         res.render('documentList', {
             user: user, 
             documents: documents, 
